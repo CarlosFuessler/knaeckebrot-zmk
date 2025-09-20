@@ -10,9 +10,9 @@ jobs:
     name: Build
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Cache west modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-zephyr-modules
         with:
@@ -46,12 +46,12 @@ jobs:
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 knaeckebrot_right_nice_nano_v2.uf2
       - name: Archive (Knaeckebrot Left)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: firmware
+          name: knaeckebrot_left_firmware
           path: knaeckebrot_left_nice_nano_v2.uf2
       - name: Archive (Knaeckebrot Right)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: firmware
+          name: knaeckebrot_right_firmware
           path: knaeckebrot_right_nice_nano_v2.uf2
