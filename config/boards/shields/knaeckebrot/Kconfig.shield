@@ -1,0 +1,18 @@
+config SHIELD_KNAECKEBROT_LEFT
+    def_bool $(shields_list_contains,knaeckebrot_left)
+
+config SHIELD_KNAECKEBROT_RIGHT
+    def_bool $(shields_list_contains,knaeckebrot_right)
+
+config SHIELD_KNAECKEBROT
+    def_bool SHIELD_KNAECKEBROT_LEFT || SHIELD_KNAECKEBROT_RIGHT
+
+if SHIELD_KNAECKEBROT
+
+config ZMK_KEYBOARD_NAME
+    default "Knaeckebrot"
+
+config ZMK_SPLIT
+    default y
+
+endif
